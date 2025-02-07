@@ -318,14 +318,14 @@
                         </ul>
                     </div>
                 </div><!-- depthList--3 END -->
-                <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=63ae04bf1f6dcf53ca5bd7accedf7ab2"></script>
+                
                 <div id="map" style="width: 100%;height: 290px;"></div>
                 <button type="button" class="btnMyPosition" onclick="gps_tracking();">내위치</button>
                 <div class="zoomControl">
                     <button type="button" onclick="zoomIn();"><img src="assets/images/icon_plus.svg" alt="확대"></button>
                     <button type="button" onclick="zoomOut();"><img src="assets/images/icon_minus.svg" alt="축소"></button>
                 </div>
-                
+                <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=63ae04bf1f6dcf53ca5bd7accedf7ab2"></script>
                 <script>
                     var mapContainer = document.getElementById("map"), // 지도를 표시할 div 
                         mapOption = { 
