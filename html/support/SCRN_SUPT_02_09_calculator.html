@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="인천문화재단">
+    <meta name="keywords" content="재단소개, 지원사업, 사업안내, 문화예술DB, 아트레인, 자료실, 열린문화, 인천문화재단">
+    <meta name="description" content="인천의 문화예술진흥을 위해 인천광역시가 기금을 출연해 2004년에 설립한 비영리 재단 법인">
+    <meta property="og:title" content="인천문화재단">
+    <meta property="og:site_name" content="인천문화재단">
+    <meta property="og:author" content="인천문화재단">
+    <meta property="og:image" content="../../assets/images/layout/og_images.png">
+    <meta property="og:description" content="인천의 문화예술진흥을 위해 인천광역시가 기금을 출연해 2004년에 설립한 비영리 재단 법인">
+    <title>인천문화재단</title>
+    <link rel="shortcut icon" href="../../assets/images/layout/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="../../assets/css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/sub.css">
+
+    <script src="../../assets/js/lib/jquery-1.12.4.min.js"></script>
+    <script src="../../assets/js/lib/swiper.min.js"></script>
+    <script src="../../assets/js/lib/slick.min.js"></script>
+    <!-- <script src="../../assets/js/ui.js"></script> -->
+    <script src="../../assets/js/sub.js"></script>
+
+    <!-- datepicker css/js -->
+    <link rel="stylesheet" type="text/css" href="../../assets/css/datepicker.css">
+    <script src="../../assets/js/datepicker.js"></script>
+</head>
+<body>
+
+    <div class="calculatorWrap">
+        <div class="calculatorSelection">
+            <div class="calculatorHeader">
+                <p class="icon mb20"><img src="../../assets/images/sub/icon_calculator.png" alt=""></p>
+                <h5 class="title">원천징수계산기</h5>
+                <p class="text">원천징수 계산기를 통해 문화예술용역 계약 시 <br />사업주가 예술인에게 실제로 지급해야 하는 금액을 <br />확인해보시기 바랍니다.</p>
+            </div>
+            <ul class="calculatorForm">
+                <li>
+                    <label for="calculator_monny">예술인의 총 <span class="mainColorText">계약 금액</span>을 입력해 주세요.</label>
+                    <input type="text" id="calculator_monny" name="calculator_monny" placeholder="계약 금액을 입력해 주세요.(숫자만)" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onblur="this.value=this.value.replace(/[^0-9]/g,'')">
+                </li>
+                <li>
+                    <label for="calculator_day">예술인의 총 <span class="mainColorText">계약 기간</span>을 입력해 주세요.</label>
+                    <select name="calculator_day" id="calculator_day">
+                        <option>계약 기간을 선택하세요.</option>
+                        <option value="1">1개월 이상 계약</option>
+                        <option value="2">1개월 미만 계약</option>
+                    </select>
+                </li>
+            </ul>
+            <div class="calculator_day_con calculator_day_con01">
+                <ul class="calculatorForm mt20">
+                    <li>
+                        <label for="income_type1">예술인의 <span class="mainColorText">소득유형</span>을 선택해주세요.</label>
+                        <select name="income_type1" id="income_type1">
+                            <option value="">소득유형 선택하세요.</option>
+                            <option value="사업">사업소득</option>
+                            <option value="기타">기타소득</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="calculator_day">1개월 이상 계약</label>
+                        <ul class="datepickerGroup type2">
+                            <li class="wFull">
+                                <input type="text" class="formDatepicker wFull" id="calculator_day1" name="calculator_day1" title="시작일 선택" placeholder="시작일을 선택하세요.">
+                            </li>
+                            <li class="wFull">
+                                <input type="text" class="formDatepicker wFull" id="calculator_day2"  name="calculator_day2" title="종료일 선택" placeholder="종료일을 선택하세요.">
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <button type="button" class="btnCalculator" id="calculator_go1">계산하기</button>
+            </div>
+            <div class="calculator_day_con calculator_day_con02">
+                <ul class="calculatorForm mt20">
+                    <li>
+                        <label for="income_type2">예술인의 <span class="mainColorText">소득유형</span>을 선택해주세요.</label>
+                        <select name="income_type2" id="income_type2">
+                            <option value="">소득유형 선택하세요.</option>
+                            <option value="사업">사업소득</option>
+                            <option value="기타">기타소득</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="calculator_day3">1개월 미만 계약</label>
+                        <select id="calculator_day3" name="calculator_day3">
+                            <option value="">계약일을 선택하세요</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                        </select>
+                    </li>
+                </ul>
+                <button type="button" class="btnCalculator" id="calculator_go2">계산하기</button>
+            </div>
+        </div><!-- calculatorSelection END -->
+        <div class="calculatorResult"></div>
+    </div><!-- calculatorWrap END -->
+    <script>
+        function getMonthsDifference(date1, date2) {
+            // date1과 date2 문자열을 Date 객체로 변환합니다.
+            let startDate = new Date(date1);
+            let endDate = new Date(date2);
+
+            // 두 날짜 간의 연도 차이를 계산합니다.
+            let years = endDate.getFullYear() - startDate.getFullYear();
+
+            // 두 날짜 간의 월 차이를 계산합니다.
+            let months = endDate.getMonth() - startDate.getMonth();
+
+            // 총 개월 수를 반환합니다.
+            return years * 12 + months;
+        }
+
+        function calculator_out(){
+            $('.calculator_demmy, .calculator_modal').fadeOut(300);
+        }
+
+        $(function(){
+            $('#calculator_day').change(function(){
+                if( $(this).val() == 1 ){
+                    $('.calculator_day_con').hide();
+                    $('.calculator_day_con01').show();
+                }else if( $(this).val() == 2 ){
+                    $('.calculator_day_con').hide();
+                    $('.calculator_day_con02').show();
+                }
+            });
+
+            var calc_Mval;
+            var calculator_modal_text;
+
+            // 일반예술인 체크
+            $('#calculator_go1').click(function(){
+                calc_Mval = $('#calculator_monny').val();
+                var calc_Dval1 = $('#calculator_day1').val();
+                var calc_Dval2 = $('#calculator_day2').val();
+
+                var income_type1 = $('#income_type1').val();
+
+                if( !calc_Mval ){
+                    alert("계약 금액을 입력해 주세요.");
+                    return;
+                }
+                if( !calc_Dval1 ){
+                    alert("시작일을 선택해주세요.");
+                    return;
+                }
+                if( !calc_Dval2 ){
+                    alert("종료일을 선택해주세요.");
+                    return;
+                }
+
+                if( !income_type1 ){
+                    alert("소득유형을 선택해주세요.");
+                    return;
+                }
+
+                var calc_Dval1_1 = calc_Dval1.split('-');
+                var calc_Dval2_1 = calc_Dval2.split('-');
+                calc_Dval1_1[1] = calc_Dval1_1[1] - 1;
+                calc_Dval2_1[1] = calc_Dval2_1[1] - 1;
+                var date1 = new Date(calc_Dval1_1[0], calc_Dval1_1[1], calc_Dval1_1[2]);
+                var date2 = new Date(calc_Dval2_1[0], calc_Dval2_1[1], calc_Dval2_1[2]);
+
+
+                var elapsedDay = parseInt((date2.getTime() - date1.getTime())/(1000*60*60*24) + 1);
+                //console.log(elapsedDay);
+                if( elapsedDay < 30 ){
+                    alert("1개월 미만 계약으로 계산해주세요.");
+                    return;
+                }
+                var calc_result1 = (calc_Mval / elapsedDay) * 30; // 월평균 소득
+                var calc_result2 = calc_result1 * 0.75; // 월평균 보수
+                var calc_result3 = calc_result2 * 0.008; // 피보험자 부담
+                var calc_result4 = calc_result2 * 0.008; // 사업자자부담
+
+                if( calc_result2 < 800000){ //월평균보수 800,000원 미만 기준보수 적용
+                    //calc_result2 = 800000;
+                    calc_result3 = 6400;
+                    calc_result4 = 6400;
+                }
+
+                if( calc_result1 < 500000 ){ //월평균소득 500,000원 미만일경우 calc_result3,  calc_result4 은 0원 처리
+                    calc_result3 = 0;
+                    calc_result4 = 0;
+                }
+
+                calc_result1 = parseInt(calc_result1);
+                calc_result2 = parseInt(calc_result2);
+                calc_result3 = parseInt(calc_result3);
+                calc_result4 = parseInt(calc_result4);
+
+                var mDiff = getMonthsDifference(date1, date2);
+                mDiff_1 = mDiff+1;
+
+                var calc_G = parseInt(calc_Mval * 0.033);	//사업소득원천세	
+
+                var calc_H = parseInt(calc_Mval - (calc_result3 * mDiff_1) - calc_G);	//사업소득 실지급	
+
+                var calc_I = parseInt(calc_Mval * 0.088);   //기타소득원천세	
+                if(calc_Mval<=125000) calc_I=0; // 총금액이 <125,000인 경우 I는 0원처리
+
+
+                var calc_J = parseInt(calc_Mval - (calc_result3 * mDiff_1) - calc_I );  //기타소득 실지급
+
+                calculator_modal_text ="<div class='calculatorHeader'><p class='icon mb20'><img src='../../assets/images/sub/icon_calculator.png' alt=''></p>";
+                calculator_modal_text += "<h5 class='title'>일반예술인 원천징수 계산결과</h5></div>" ;
+                calculator_modal_text += "<strong>예술인 고용보험 계산결과</strong>" ;
+                calculator_modal_text += "<ul>";
+                calculator_modal_text += "<li>월 평균 소득 <b> "+calc_result1.toLocaleString()+" </b>원 </li>";
+                calculator_modal_text += "<li>월 평균 보수 <b> "+calc_result2.toLocaleString()+" </b>원 </li>";
+                calculator_modal_text += "<li>피보험자 월 부담액   <b> "+calc_result3.toLocaleString()+" </b>원 </li>";
+                calculator_modal_text += "<li>사업주 월 부담액    <b> "+calc_result4.toLocaleString()+" </b>원 </li>";
+                calculator_modal_text += "</ul>";
+                
+                if(income_type1=="사업"){
+                    calculator_modal_text += "<strong>사업소득 원천세 계산결과</strong>" ;
+                    calculator_modal_text += "<ul>";
+                    calculator_modal_text += "<li>원천세(3.3%) <b> "+calc_G.toLocaleString()+" </b>원 </li>";
+                    calculator_modal_text += "<li>실 지급액  <b> "+calc_H.toLocaleString()+" </b>원 </li>";
+                    calculator_modal_text += "</ul>";
+                    calculator_modal_text += "<div class='calculatorInfo'><p>실 지급액은 계약금액에서 예술인 고용보험료와 원천세(3.3%)를 제외한 금액입니다</p>";
+                } else {
+                    calculator_modal_text += "<strong>기타소득 원천세 계산결과</strong>" ;
+                    calculator_modal_text += "<ul>";
+                    calculator_modal_text += "<li>원천세(8.8%)  <b> "+calc_I.toLocaleString()+" </b>원 </li>";
+                    calculator_modal_text += "<li>실 지급액  <b> "+calc_J.toLocaleString()+" </b>원 </li>";
+                    calculator_modal_text += "</ul>";
+                    calculator_modal_text += "<div class='calculatorInfo'><p>실 지급액은 계약금액에서 예술인 고용보험료와 원천세(8.8%)를 제외한 금액입니다</p>";
+                }
+
+                calculator_modal_text += "<p>단, 계산 결과는 세부사항에 따라 실제와 차이가 있을 수 있습니다.</p></div>";
+
+                $('.calculatorResult').html("");
+                $('.calculatorResult').html(calculator_modal_text);
+                $('.calculatorSelection').hide();   
+                $('.calculatorResult').fadeIn(300);
+            }); // 일반예술인 끝
+
+
+            // 단기예술인
+            $('#calculator_go2').click(function(){
+                calc_Mval = $('#calculator_monny').val();
+                var calc_Dval3 = $('#calculator_day3').val();
+                var income_type2 = $('#income_type2').val();
+                //console.log(income_type2);
+                if( !calc_Mval ){
+                    alert("계약 금액을 입력해 주세요.");
+                    return;
+                }
+                if( calc_Dval3 == "" ){
+                    alert("계약일을 선택해주세요.");
+                    return;
+                }
+                if( income_type2 == "" ){
+                    alert("소득유형을 선택해주세요.");
+                    return;
+                }
+
+                var calc_result5 = parseInt(calc_Mval * 0.75);
+                var calc_result6 = parseInt(calc_result5 * 0.008);
+
+                var calc_G = parseInt(calc_Mval * 0.033);	//사업소득원천세
+                var calc_H = parseInt(calc_Mval - calc_result6 - calc_G);	//사업소득 실지급
+                var calc_I = parseInt(calc_Mval * 0.088);   //기타소득원천세	
+                if(calc_Mval<=125000) calc_I=0;     // 총금액이 <125,000인 경우 I는 0원처리
+                var calc_J = parseInt(calc_Mval -calc_result6 - calc_I);    //기타소득 실지급
+
+                calculator_modal_text ="<div class='calculatorHeader'><p class='icon mb20'><img src='../../assets/images/sub/icon_calculator.png' alt=''></p>";
+                calculator_modal_text += "<h5 class='title'>단기예술인 원천징수 계산결과</h5></div>" ;
+                calculator_modal_text += "<strong>예술인 고용보험 계산결과</strong>" ;
+                calculator_modal_text += "<ul>";
+                calculator_modal_text += "<li>보수 총액 <b> "+calc_result5.toLocaleString()+" </b>원 </li>";
+                calculator_modal_text += "<li>피보험자 월 부담액 <b> "+calc_result6.toLocaleString()+" </b>원 </li>";
+                calculator_modal_text += "<li>사업주 월 부담액 <b> "+calc_result6.toLocaleString()+" </b>원 </li>";
+                calculator_modal_text += "</ul>";
+                
+                if(income_type2=="사업"){
+                    calculator_modal_text += "<strong>사업소득 원천세 계산결과</strong>" ;
+                    calculator_modal_text += "<ul>";
+                    calculator_modal_text += "<li>원천세(3.3%) <b> "+calc_G.toLocaleString()+" </b>원 </li>";
+                    calculator_modal_text += "<li>실 지급액 <b> "+calc_H.toLocaleString()+" </b>원 </li>";
+                    calculator_modal_text += "</ul>";
+                    calculator_modal_text += "<div class='calculatorInfo'><p>실 지급액은 계약금액에서 예술인 고용보험료와 원천세(3.3%)를 제외한 금액입니다</p>";
+                } else {
+                    calculator_modal_text += "<strong>기타소득 원천세 계산결과</strong>" ;
+                    calculator_modal_text += "<ul>";
+                    calculator_modal_text += "<li>원천세(8.8%) <b> "+calc_I.toLocaleString()+" </b>원 </li>";
+                    calculator_modal_text += "<li>실 지급액	<b> "+calc_J.toLocaleString()+" </b>원 </li>";
+                    calculator_modal_text += "</ul>";
+                    calculator_modal_text += "<div class='calculatorInfo'><p>실 지급액은 계약금액에서 예술인 고용보험료와 원천세(8.8%)를 제외한 금액입니다</p>";
+                }
+                calculator_modal_text += "<p>단, 계산 결과는 세부사항에 따라 실제와 차이가 있을 수 있습니다.</p></div>";
+
+                $('.calculatorResult').html("");
+                $('.calculatorResult').html(calculator_modal_text);
+
+                $('.calculatorSelection').hide();
+                $('.calculatorResult').fadeIn(300);
+            }); // 단기 예술인 끝
+        });
+    </script>
+
+</body>
+</html>

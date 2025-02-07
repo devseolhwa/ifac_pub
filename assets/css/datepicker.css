@@ -1,0 +1,181 @@
+.datepicker {
+  position: relative;
+  display: block;
+  vertical-align: middle;
+}
+.datepicker .formDatepicker {
+  padding-right: 52px;
+}
+.datepicker .btnDatepickerOpen {
+  position: absolute;
+  right: 8px;
+  top: 0;
+  bottom: 0;
+  width: 44px;
+  height: 100%;
+  background: url(../images/layout/icon_calendar.svg) center no-repeat;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-indent: -9999px;
+  white-space: nowrap;
+}
+@media (max-width: 767.98px) {
+  .datepicker {
+    display: block;
+  }
+  .datepicker .formDatepicker {
+    width: 100% !important;
+  }
+}
+
+#inseqDatepicker {
+  position: absolute;
+  width: 250px;
+  padding: 12px;
+  border: 1px solid #e6e6e6;
+  font-size: 13px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 8px 15px rgba(66, 73, 80, 0.15);
+    box-shadow: 0px 8px 15px rgba(66, 73, 80, 0.15);
+  z-index: 1500;
+}
+#inseqDatepicker caption {
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+#inseqDatepicker table {
+  table-layout: auto;
+  margin-top: 0;
+  width: 100%;
+  text-align: center;
+  border: 0px solid #000;
+  color: #333;
+  line-height: 2;
+}
+#inseqDatepicker table a {
+  line-height: 2;
+}
+#inseqDatepicker table th {
+  height: auto;
+  background: none;
+  padding: 0 0 0.5em;
+  border: 0;
+  margin: 0;
+  text-align: center;
+  line-height: 20px;
+  font-weight: 500;
+}
+#inseqDatepicker table td {
+  padding: 0 !important;
+  margin: 0;
+  height: 28px;
+  text-align: center;
+  border: 0;
+  line-height: 1;
+}
+#inseqDatepicker table tbody td {
+  height: 28px;
+  color: #767676;
+}
+#inseqDatepicker table tbody td a {
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  margin: 0 auto;
+  display: block;
+  color: #000;
+  text-decoration: none;
+}
+#inseqDatepicker table tbody td a.today {
+  border-radius: 50%;
+  color: #fff !important;
+  background-color: #1f76eb;
+  font-weight: bold;
+}
+#inseqDatepicker #tableCalendarTitle {
+  margin-bottom: 8px;
+}
+#inseqDatepicker #tableCalendarTitle td {
+  font-size: 16px;
+}
+#inseqDatepicker #tableCalendarTitle td a {
+  font-size: inherit;
+}
+#inseqDatepicker #tableMonthTitle td a {
+  font-size: 16px;
+}
+#inseqDatepicker #tableYearTitle {
+  margin-bottom: 5px;
+}
+#inseqDatepicker #tableYearTitle td {
+  font-size: 16px;
+}
+#inseqDatepicker #tableCalendarTitle a,
+#inseqDatepicker #tableYear a,
+#inseqDatepicker #tableMonthTitle a,
+#inseqDatepicker #tableMonth a {
+  color: #000;
+}
+#inseqDatepicker #tableCalendar th:first-child,
+#inseqDatepicker #tableCalendar td:first-child {
+  color: #cf2121;
+}
+#inseqDatepicker #tableCalendar th:first-child a,
+#inseqDatepicker #tableCalendar td:first-child a {
+  color: inherit;
+}
+#inseqDatepicker #tableCalendar th:last-child,
+#inseqDatepicker #tableCalendar td:last-child {
+  color: #0072cf;
+}
+#inseqDatepicker #tableCalendar th:last-child a,
+#inseqDatepicker #tableCalendar td:last-child a {
+  color: inherit;
+}
+#inseqDatepicker .prev,
+#inseqDatepicker .next {
+  width: 21px;
+  height: 21px;
+  border-radius: 11px;
+  line-height: 21px;
+  border: 0;
+  padding: 0;
+  background: url(../images/layout/ico-chevron-left-gray@2x.png) no-repeat;
+  background-size: 20px auto;
+  text-indent: -9999px;
+  text-align: left;
+  overflow: hidden;
+}
+#inseqDatepicker .prev {
+  float: left;
+  margin-left: 30px;
+  background-position: right center;
+}
+#inseqDatepicker .next {
+  float: right;
+  margin-right: 30px;
+  background-image: url(../images/layout/ico-chevron-right-gray@2x.png);
+  background-position: left center;
+}
+#inseqDatepicker .btn-cal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+}
+#inseqDatepicker .btn-cal-close a {
+  display: block;
+  width: 20px;
+  height: 20px;
+  color: transparent;
+  background: url(../images/layout/ico-times-gray@2x.png) no-repeat center center;
+  background-size: 20px auto;
+}
+@media (max-width: 767.98px) {
+  #inseqDatepicker {
+    left: 50% !important;
+    margin-left: -125px !important;
+  }
+}
