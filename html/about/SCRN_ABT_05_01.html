@@ -318,35 +318,127 @@
                         </ul>
                     </div>
                 </div><!-- depthList--3 END -->
-                <div id="map" style="width:100%;height:350px;"></div>
+                <div id="map" style="width: 100%;height: 290px;"></div>
+                <button type="button" class="btnMyPosition" onclick="gps_tracking();">내위치</button>
+                <div class="zoomControl">
+                    <button type="button" onclick="zoomIn();"><img src="assets/images/icon_plus.svg" alt="확대"></button>
+                    <button type="button" onclick="zoomOut();"><img src="assets/images/icon_minus.svg" alt="축소"></button>
+                </div>
+                <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=63ae04bf1f6dcf53ca5bd7accedf7ab2"></script>
+                <script>
+                    var mapContainer = document.getElementById("map"), // 지도를 표시할 div 
+                        mapOption = { 
+                            center: new kakao.maps.LatLng(37.52477056928633, 126.96255948815019), // 지도의 중심좌표
+                            level: 2 // 지도의 확대 레벨
+                        };
+                    
+                    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+                    
+                    var imageSrc = "assets/images/icon_pin.svg";                // 마커이미지 주소
+                        imageSize = new kakao.maps.Size(36, 41);                // 마커이미지의 크기
+                        imageOption = {offset: new kakao.maps.Point(18, 41)};   // 마커의 좌표와 일치시킬 이미지 안에서의 좌표설정
+                        
+                    // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+                    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+                
+                    var arr = new Array();
+                    // 상점이름, 위도, 경도, 링크주소
+                    arr[0] = ["해머드",37.52477056928633,126.96255948815019,"718954693"];
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	63ae04bf1f6dcf53ca5bd7accedf7ab2"></script>
-<script>
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-    mapOption = { 
-        center: new kakao.maps.LatLng(33.45057099718746, 126.5696400862447), // 지도의 중심좌표
-        level: 4 // 지도의 확대 레벨
-    };
+                    var markerTmp;      // 마커
+                    var customOverlay;  // 오버레이
+                    var contentStr;
+                    
+                    for (var i=0;i<arr.length;i++) {
+                        markerTmp = new daum.maps.Marker({
+                            position: new daum.maps.LatLng(arr[i][1],arr[i][2]),
+                            title: arr[i][0],
+                            image: markerImage,
+                            map:map
+                        });
+                    
+                        contentStr = "<div class='storePin'><a href='https://map.kakao.com/link/map/"+ arr[i][3] +"' target='_blank'><span class='name'>"+ arr[i][0] +"</span></a></div>";
+                    
+                        customOverlay = new kakao.maps.CustomOverlay({
+                            map: map,
+                            position: new daum.maps.LatLng(arr[i][1],arr[i][2]),
+                            content: contentStr,
+                            yAnchor: 1 
+                        });
+                    }
+                    
+                    // 지도 확대, 축소
+                    function zoomIn() {
+                        map.setLevel(map.getLevel() - 1);
+                    }
+                    function zoomOut() {
+                        map.setLevel(map.getLevel() + 1);
+                    }
 
-var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+                    // 내 위치 스크립트 시작
+                    var gps_use = null; //gps의 사용가능 여부
+                    var gps_lat = null; // 위도
+                    var gps_lng = null; // 경도
+                    var gps_position; // gps 위치 객체
+                    var beforeOverlay = [];
 
-var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png', // 마커이미지의 주소입니다    
-    imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
-    imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-      
-// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
-var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
-    markerPosition = new kakao.maps.LatLng(33.45057099718746, 126.5696400862447); // 마커가 표시될 위치입니다
+                    gps_check();
+                    // gps가 이용가능한지 체크하는 함수이며, 이용가능하다면 show location 함수를 불러온다.
+                    // 만약 작동되지 않는다면 경고창을 띄우고, 에러가 있다면 errorHandler 함수를 불러온다.
+                    // timeout을 통해 시간제한을 둔다.
+                    function gps_check(){
+                        if (navigator.geolocation) {
+                            var options = {timeout:60000};
+                            navigator.geolocation.getCurrentPosition(showLocation, errorHandler, options);
+                        } else {
+                            alert("GPS_추적이 불가합니다.");
+                            gps_use = false;
+                        }
+                    }
 
-// 마커를 생성합니다
-var marker = new kakao.maps.Marker({
-    position: markerPosition, 
-    image: markerImage // 마커이미지 설정 
-});
+                    // gps 이용 가능 시, 위도와 경도를 반환하는 showlocation함수.
+                    function showLocation(position) {
+                        gps_use = true;
+                        gps_lat = position.coords.latitude;
+                        gps_lng = position.coords.longitude;
+                    }
 
-// 마커가 지도 위에 표시되도록 설정합니다
-marker.setMap(map);  
-</script>
+                    // error발생 시 에러의 종류를 알려주는 함수.
+                    function errorHandler(error) {
+                        if(error.code == 1) {
+                            alert("설정에서 나의 위치를 공유하기로 변경해주세요.");
+                        } else if(err.code == 2) {
+                            alert("위치를 반환할 수 없습니다.");
+                        }
+                        gps_use = false;
+                    }
+                    function gps_tracking(){
+                        removeBeforeOverlay();
+                        if (gps_use) {
+                            map.panTo(new kakao.maps.LatLng(gps_lat,gps_lng));
+                            var gps_content = "<div class='myPosition'><img unselectable='on' src='assets/images/myPositionPin.svg' alt=''></div>";
+                            var currentOverlay = new kakao.maps.CustomOverlay({
+                                position: new kakao.maps.LatLng(gps_lat,gps_lng),
+                                content: gps_content,
+                                map: map
+                            });
+                            currentOverlay.setMap(map);
+                            beforeOverlay.push(currentOverlay);
+
+                            return currentOverlay;
+                        } else {
+                            alert("접근차단하신 경우 새로고침, 아닌 경우 잠시만 기다려주세요.");
+                            gps_check();
+                        }
+                    }
+                    function removeBeforeOverlay() {
+                        for ( var i = 0; i < beforeOverlay.length; i++ ) {
+                            beforeOverlay[i].setMap(null);
+                        }   
+                        beforeOverlay = [];
+                    }
+                </script>
+          
                 <div class="ifacAddress">
                     <ul>
                         <li>
